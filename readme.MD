@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="300" height="300" src="./src/SVG/logo.svg">
+    <img width="400" height="200" src="./src/SVG/logo.svg">
 </p>
 
 # Playground
