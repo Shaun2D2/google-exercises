@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PALLET } from '../GlobalStyles';
 import { Link } from 'react-router-dom';
+import { PALLET } from '../GlobalStyles';
 
 const NotFound = () => (
   <NotFoundWrapper>
     <NotFoundMessage>
       <h1>404 Not Found</h1>
-      <p>oh good!  We found you! <Link to="/">Click here</Link> to go home. </p>
+      <p>
+        oh good!  We found you!
+        <Link to="/">Click here</Link>
+        {' '}
+        to go home.
+        {' '}
+      </p>
     </NotFoundMessage>
   </NotFoundWrapper>
 );
