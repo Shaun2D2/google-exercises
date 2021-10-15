@@ -9,7 +9,7 @@ import { PALLET } from '../GlobalStyles';
 const Home = () => {
   const history = useHistory();
 
-  const handleClick = useCallback(() => history.push('/playground'));
+  const handleClick = useCallback(() => history.push('/playgrounds'));
 
   return (
     <Container>
