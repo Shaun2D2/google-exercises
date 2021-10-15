@@ -41,6 +41,7 @@ const MenuSidebar = styled.div`
     padding: 15px;
     box-shadow: 1px 0px 10px #CCC;
     left: -350px;
+    top: 0px;
 
     &.enter-active {
       animation: ${slideIn} .5s cubic-bezier(0.075, 0.82, 0.165, 1);

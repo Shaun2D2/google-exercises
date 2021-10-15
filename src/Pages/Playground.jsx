@@ -1,5 +1,10 @@
 import React from 'react';
+import Page from '../Components/Page';
 
-const Playground = () => <h1>playground page...</h1>;
+const Playground = () => (
+  <Page>
+    hello world
+  </Page>
+);
 
 export default Playground;

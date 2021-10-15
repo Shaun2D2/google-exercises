@@ -12,9 +12,9 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Router path="/playgrounds" component={Playgrounds} />
-        <Router path="/playgrounds/:difficulty/:id" component={Playground} />
+        <Route path="/playgrounds" component={Playgrounds} />
+        <Route path="/playgrounds/:difficulty/:id" component={Playground} />
+        <Route path="/" component={Home} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>
