@@ -3,6 +3,7 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './Pages/Home';
 import Playground from './Pages/Playground';
+import NotFound from './Pages/NotFound';
 
 const AppRouter = () => {
   useEffect(() => console.log('application mounted!'));
@@ -10,8 +11,9 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Router path="/playground" component={Playground} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </Router>
   );
