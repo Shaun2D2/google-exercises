@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 
@@ -10,8 +10,19 @@ import { slideIn, slideOut } from './Animations';
 const Navigation = () => {
   const [open, setOpen] = useState(false);
 
+  const bodyTag = useMemo(() => document.getElementsByTagName('body')[0], []);
+
   const handleClick = () => {
-    setOpen(!open);
+    const state = !open;
+
+    setOpen(state);
+
+    if (state) {
+      bodyTag.classList.add('noscroll');
+      return;
+    }
+
+    bodyTag.classList.remove('noscroll');
   };
 
   return (
