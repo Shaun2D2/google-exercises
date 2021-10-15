@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import styled, { keyframes } from 'styled-components';
+
+import { slideIn, slideOut } from './Animations';
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -30,20 +32,6 @@ const Navigation = () => {
   );
 };
 
-const slideIn = keyframes`
-    0% { left: -350px }
-    100% { left: 0px }
-`;
-
-const slideOut = keyframes`
-    0% { left: 0px }
-    100% { left: -350px }
-`;
-
-/**
- * need to look over this animation, does not run super well
- * 
- */
 const MenuSidebar = styled.div`
     position:fixed;
     width: 300px;
@@ -71,16 +59,6 @@ const MenuBrand = styled.h1`
     text-align: center;
 `;
 
-const fadeIn = keyframes`
-    0% { background-color: transparent }
-    100% { background-color: #000 }
-`;
-
-const fadeOut = keyframes`
-    0% { background-color: #000 }
-    100% { background-color: transparent }
-`;
-
 const MenuBackdrop = styled.div`
     position: fixed;
     top: 0px;
@@ -93,35 +71,29 @@ const MenuBackdrop = styled.div`
     z-index: 2;
     width: 100%;
     transition: background-color .3s;
-
-    /* animation: ${({ state }) => (state === 'exiting' ? fadeOut : fadeIn)} ease-in .2s; */
-    // enter from
-
-    // enter to
+    display: none;
     &.enter {
       opacity: 0;
+      display: block !important;
     }
-
     &.enter-done {
       opacity: .3 !important;
+      display: block !important;
     }
-
     &.enter-active {
       opacity: .3 !important;
       transition: opacity 200ms;
+      display: block !important;
     }
-
-    // exit from
     &.exit {
       opacity: .3;
+      display: block !important;
     }
-
-    // exit to 
     &.exit-active {
       opacity: 0;
       transition: opacity 200ms;
+      display: block !important;
     }
-
     &.exit-done {
       display:none;
     }
