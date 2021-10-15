@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
 
 import { PALLET } from '../GlobalStyles';
 
-const Home = () => (
-  <Container>
-    <Welcome>Welcome to Playground</Welcome>
-    <CallToAction>
-      Click to Start
-      {' '}
-      <FontAwesomeIcon icon={faArrowRight} color={PALLET.imperialRed} />
-    </CallToAction>
+const Home = () => {
+  const history = useHistory();
 
-  </Container>
-);
+  const handleClick = useCallback(() => history.push('/playground'));
+
+  return (
+    <Container>
+      <Welcome>Welcome to Playground</Welcome>
+      <CallToAction onClick={handleClick}>
+        Click to Start
+        {' '}
+        <FontAwesomeIcon icon={faArrowRight} color={PALLET.imperialRed} />
+      </CallToAction>
+
+    </Container>
+  );
+};
 
 const cursor = keyframes`
   0% {
@@ -64,6 +71,20 @@ const CallToAction = styled.a`
     animation-delay: 2s;
     animation-fill-mode: forwards;
     cursor: pointer;
+    svg {
+      opacity: 1;
+      transform: translateX(0px);
+      transition: transform 1s, opacity 1s;
+    }
+    &:hover {
+      svg{
+        opacity: 0;
+        transform: translateX(200px);
+        transition: transform 1s, opacity 1s;
+      }        
+    }
+    &:
+
 `;
 
 export default Home;
