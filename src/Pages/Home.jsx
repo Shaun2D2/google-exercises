@@ -61,6 +61,7 @@ const Welcome = styled.h1`
     overflow: hidden;
     white-space: nowrap;
     animation: ${cursor} ease-in 1s infinite, ${typing} 3.5s steps(40, end);
+    margin-top: 0px;
 `;
 
 const CallToAction = styled.a`
@@ -71,20 +72,20 @@ const CallToAction = styled.a`
     animation-delay: 2s;
     animation-fill-mode: forwards;
     cursor: pointer;
+    transition: color .5s;
     svg {
       opacity: 1;
       transform: translateX(0px);
       transition: transform 1s, opacity 1s;
     }
     &:hover {
+      color: ${PALLET.imperialRed};
       svg{
         opacity: 0;
         transform: translateX(200px);
         transition: transform 1s, opacity 1s;
       }        
     }
-    &:
-
 `;
 
 export default Home;
